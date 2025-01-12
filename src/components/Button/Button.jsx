@@ -3,11 +3,14 @@ import { MdMessage } from 'react-icons/md'
 import styles from './Button.module.css'
 
 export default function Button(props) {
-    console.log(props)
+
+    const {isOutline, text, icon}=props
   return (
-    <button className={styles.primary_btn}>
-        <MdMessage font-size="24px"/>
-        VIA Support Chat
+    <button className={isOutline ? styles.outline_btn:styles.primary_btn}>
+       
+           
+            {icon}     
+            {text}   
     </button>
   )
 }
