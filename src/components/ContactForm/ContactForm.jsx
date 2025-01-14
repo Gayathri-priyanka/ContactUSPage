@@ -1,30 +1,28 @@
 import { MdMessage } from 'react-icons/md'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
-
-
 import Button from '../Button/Button'
 import styles from './ContactForm.module.css'
 import React from 'react'
+import {useState} from 'react';
+
 
 export default function ContactForm() {
+  const [name,setName]=useState("");
+  const [email,setEmail]=useState("");
+  const [text,setText]=useState("");
+  
 
-  let name;
-  let email;
-  let text;
 
   const onViaCAllSubmit=()=>{
     console.log("From Call");
   }
 
   const onSubmit=(event)=>{
-
-
     event.preventDefault();
-
-    name=event.target[0].value;
-    email=event.target[1].value;
-    text=event.target[2].value;
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setText(event.target[2].value);
     console.log("name",event.target[0].value);
     console.log("email",event.target[1].value);
     console.log("text",event.target[1].value);
@@ -54,7 +52,9 @@ export default function ContactForm() {
               <textarea rows="8" type="text" name="text"/>
            </div>
            <Button  text="SUBMIT" />
-
+           <div>
+            {name+" "+email+" "+text}
+           </div>
 
 
           </form>
